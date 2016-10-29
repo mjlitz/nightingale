@@ -3,3 +3,20 @@
 3. Create method to analyze text patterns
 4. Create random "catchy" music
 5. Connect catchy music with text patterns so they align.
+
+//aaron wrote this part
+outputting stuff:
+we output three things
+1) sheet music
+2) an MIDI file (can also be played in browser)
+3) abc notation of the MIDI (optional via checkbox)
+
+1) will be displayed in browser
+3) will be the alt text for 1)
+
+downloadystuff....
+user can download zip file containing the following:
+1)
+2)
+3) (only if the checkbox is ticked)
+//end aaron's incoherent ramblings
