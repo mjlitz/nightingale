@@ -1,5 +1,6 @@
-Nightingale will soon be a webapp that takes lyrics and generates a song to go along with them.
+Nightingale takes lyrics and creates a song for them.
 
 Dependencies:
-abcjc
+abcjs
 https://github.com/paulrosen/abcjs/blob/master/api.md
+
