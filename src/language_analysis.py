@@ -1,5 +1,5 @@
 from pycorenlp import StanfordCoreNLP
-nlp = StanfordCoreNLP('http://localhost:9000')
+nlp = StanfordCoreNLP('http://localhost:9001') #it's over NINE THOUSAND!
 
 '''
 language analysis for nightingale
