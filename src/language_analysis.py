@@ -22,14 +22,22 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	while len(phrases) > 0:
 		current_phrase = ''
 		next_index = '//todo(aaron) WRITE CODE TO DO THIS'#find beginning of next phrase, save its location in next_index
-		current phrase
+		current phrase = gan[:next_index]
+
 		#set cuttent_phrase to be a substring of 0 to the next beginning
 		#add it to phrases
 		#remove the current_phrase from gan
 		eocp = gen.rfind(current_phrase) #end of current phrase
 		gan = gan[eocp:]
+		#these two lines of code might be redundant (in a bad way)
+		#gan = gan[next_index:] #I THINK THIS LINE DOES WHAT THE ABOVE TWO DO
 	return phrases
 
+#takes a really long string, breaks it into phrases, and then hyphenates the phrases
+	def break_and_hyphenate(gan):
+		phrases = phrase_break(gan)
+		for phrase in phrases:
+			phrase = hyphenate_phrase(phrase)
 '''
 language analysis for nightingale
 https://github.com/mjlitz/nightingale is the main branch
