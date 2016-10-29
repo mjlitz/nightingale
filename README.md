@@ -4,8 +4,10 @@ Dependencies:
 abcjs
 https://github.com/paulrosen/abcjs
 
-pycorenlp
+pycorenlp #we might not use this
 https://github.com/smilli/py-corenlp
+//todo(aaron):
+find out if we actually want to use this when NLTK might do what we want better or more easily or something
 
-NTLK
+NLTK
 http://www.nltk.org/
