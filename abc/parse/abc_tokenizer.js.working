@@ -27,13 +27,6 @@ if (!window.ABCJS.parse)
 // also returned is the element found. This may be a different length because spaces may be consumed that aren't part of the string.
 // The return structure for most calls is { len: num_chars_consumed, token: str }
 window.ABCJS.parse.tokenizer = function() {
-	$.ajax({
-      		type: "POST",
-		url: "~/nightingale/textconverter.py",
-		data: { param: text}
-	}).done(function( o ) {
-		   // do something
-	});
 	this.skipWhiteSpace = function(str) {
 		for (var i = 0; i < str.length; i++) {
 		  if (!this.isWhiteSpace(str.charAt(i)))
