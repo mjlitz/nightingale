@@ -1,10 +1,8 @@
 #!/usr/bin/python
 import re
 import inflect
-import pyphen
 import hyphenator
 
-dic = pyphen.Pyphen(lang='en_US')
 p = inflect.engine()
 
 #def determine_stressed
