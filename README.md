@@ -9,6 +9,5 @@ https://www.python.org/
  
 <b>Python Packages:</b>
 <ul>
-<li>pyphen: http://pyphen.org//</li>
 <li>inflect: https://pypi.python.org/pypi/inflect</li>
 </ul>
