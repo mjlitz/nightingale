@@ -14,10 +14,7 @@ d = cmudict.dict()
 p = inflect.engine()
 
 def word_syllable_count(word):
-	return [len(list(y for y in x if y[-1].isdigit())) for x in d[word.lower()]]
-#this is from http://stackoverflow.com/a/4103234
-#thank you internet stranger for writing code that does what I want
-#i renamed the function to word_syllable_count
+	return hypehnate_word(word).count('-') + 1
 
 def phrase_syllable_count(phrase):
 	total = 0
