@@ -7,7 +7,7 @@ pygame.init()
 #abc is a tuple in abc notation that has data this is meant to process
 #name will be the name of the file
 def abc_wavify(abc,name):
-	pse.make_wav(abc,fn = "{}.wav".format(name))
+	pse.make_wav(abc,fn = "~/Music/nightingale/{}.wav".format(name))
 
 #if this works then it means YEE
 def play_wav(filepath):
