@@ -1,10 +1,11 @@
+#!/usr/bin/python
 '''NIGHTINGALE version 0.0
 
 ...................
 ..  NIGHTINGALE  ..
 ...................
 
-Written by Matt Litzsinger, Andrew Huang, and Aaron Thomas
+Written by Matt Litzsinger, Aaron Thomas, and Andrew Huang
 Updated October 30, 2016
 
 
@@ -39,7 +40,7 @@ syl_pointer = 1
 
 f = open('data.abc','w')
 f.write('X: 1\nT: Nightingale #1\n')
-f.write('Q: 1/4 = 113\nM: 4/4\nL: 1/8\nK: G\n')
+f.write('Q: 1/4 = 113\nM: 4/4\nL: 1/8\nK: Bmin\n')
 
 pup = 0.55
 
