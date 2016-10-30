@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 import re
 import inflect
 import pyphen
@@ -30,7 +30,7 @@ def hyphenate_phrase(phrase):
 #takes a really long string and then returns a list. every element in the list
 def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	phrases = []
-	phrase_finder = "^.+" #@todo(aaron) test this PLEASE TEST IT
+	phrase_finder = "\n+" #@todo(aaron) test this PLEASE TEST IT
 	number_finder = "[0-9]+"
 
 	#the next three lines of code work, don't touch them unless they no longer work
@@ -43,26 +43,12 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 
 	#aaron reminder http://stackoverflow.com/questions/1276764/stripping-everything-but-alphanumeric-chars-from-a-string-in-python
 	#make sure the shit gets ruined
-	"""
-	#so this loop might be mostly redundant
-	while len(phrases) > 0:
-		current_phrase = ''
-		next_index = rm.match(phrase_finder,gan)#find beginning of next phrase, save its location in next_index
-		current_phrase = gan[:next_index]
 
-
-		'''
-		#we might not want to do this, find a way to process a phrase consisting of two subphrases
-		if current_phrase.find(',') != -1:#if a phrase has two subphrases
-			current_phrase = current_phrase.split(',')
-		'''#yeah i'm not gonna do that for now
-
-		gan = gan[next_index:] #might need to do a +1 or a -1. figure it out once I'm ready to test this function
-	
-	#more on tha loop being redundant
-	'''"""
-	phrases = re.split(phrase_finder,gan) #when the PLEASE TEST IT is above it's referring to make sure this stuff works
+	phrases = gan.lower().split("\n")#when the PLEASE TEST IT is above it's referring to make sure this stuff works
+	for i in phrases.count(''):
+		phrases.remove('')
 	return phrases
+
 
 '''
 language analysis for nightingale
