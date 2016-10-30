@@ -35,4 +35,5 @@ matt pls reply
 for demo purposes we should focus on only parsing well formatted lyrics, if someone removes all punctuation and newlines figuring it all out is just a pain. we're only going to help epople who give at least pretty good input
 
 maybe we should add a tempo slider
+the tempo slider needs a box next to it that you can just set the tempo manually and type 60 or 120 or something and it will adjust the slider automatically. why? because so tha blind people can use it. i know a blind dude who reads music in abc notation and i'm not sure if a blind person using a sceenreader can use sliders in webpages, but text boxes he can definitely use
 //end aaron
