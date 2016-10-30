@@ -13,22 +13,38 @@ Updated October 30, 2016
 
 import random
 import math
+import language_analysis as la
+import lyrics
 
 #the range of the music that's created
-r = ['C,','D,','E,','F,','G,','A,','B,', 'C', 'D', 'E', 'F', 'G', 'A', 'B', 'c', 'd', 'e', 'f', 'g']
+r = ['g3','a3','b3','c','d','e','f','g','a','b','c5','d5','e5']
 #the chance of various intervals. Should add to 1.0. [up 2nd, down 2nd, up 3rd, down 3rd...] 
 #               tonic med dom
 superphrase_start = [0.7,0.98,1.00]
 #        1    2nd  3rd  4th  5th  6th   7th   octave
 prob = [0.10,0.75,0.95,0.97,0.99,0.997,0.998,1.000]
 # data is number of phrases contained within
-superphrases = [3]
-phrases = [8,5,5]
+
+lyric_lines = la.phrase_break(lyrics.firework)
+syl_count = []
+for i in lyric_lines:
+	syl_count.append(la.phrase_syllable_count(i))
+syl_count.append(0)
+print('len sylcount = '+str(len(syl_count)))
+print(syl_count)
+syl_pointer = 1
 
 f = open('data.txt','w')
 f.write('X: 1\nT: Nightingale #1\n')
 f.write('M: 4/4\nL: 1/4\nK: G\n')
 
+pup = 0.55
+
+##need to implement
+previous_interval = 0
+up = 0 #up = 1, down = 0
+##
+key = 3
 length = 100
 pup = 0.55
 
@@ -38,11 +54,13 @@ up = 0 #up = 1, down = 0
 key = 4
 #dfromtonic = 0
 
-f.write(r[key])
+f.write('(\''+str(r[key])+'\', 4),')
 current = key
 
 def parse_phrase(phrase, current, key):
-	for note in range(0,phrases[phrase]):
+	note = 0
+	print (syl_count[phrase])
+	while (note < syl_count[phrase]):
 		dfromtonic = current-key
 		rand = random.random()
 ## Factors that affect pup and prob
@@ -65,21 +83,40 @@ def parse_phrase(phrase, current, key):
 				#f.write('current = '+str(current)+'\n')
 				#f.write('added = '+str(added)+'\n')
 				#f.write(str(n)+'\n')
-				f.write(r[current])
+				f.write('(\''+str(r[current])+'\', 4)')
 				break  
 			else:
 				i += 1
-#    note+= 1
-  
-
-def parse_superphrase(superphrase, current, key):
-	phrase = 0
-	while (phrase < superphrases[superphrase]):
-		parse_phrase(phrase, current, key)
 		f.write('|')
+		note += 1
+
+def find_block(syl_pointer):
+	begin = syl_pointer
+	while (syl_count[syl_pointer] != 0):
+		syl_pointer += 1
+	end = syl_pointer
+	block_length = end-begin
+	print('block_length = '+str(block_length))
+	return block_length
+
+
+def parse_superphrase(begin, length, current, key):
+	phrase = begin
+	while (phrase < begin+length):
+		parse_phrase(phrase, current, key)
+<<<<<<< HEAD
+		f.write('\n')
+=======
+		f.write('|')
+>>>>>>> 11bb3ca2154c54ecc0c9f7519c245f16aaeb40c9
 		phrase += 1
 
-parse_superphrase(0, current, key)
+while (syl_pointer < len(syl_count)):
+	print('syl_pointer = '+str(syl_pointer))
+	begin = syl_pointer
+	length = find_block(syl_pointer)
+	parse_superphrase(begin, length, current, key)
+	syl_pointer += length + 1
 
 
 f.close()
