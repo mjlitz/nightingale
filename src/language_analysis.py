@@ -2,12 +2,28 @@
 import re
 import inflect
 import pyphen
+import hyphenator
 
 dic = pyphen.Pyphen(lang='en_US')
 p = inflect.engine()
 
+#def determine_stressed
+
+#this takes a word and separates its syllables so that they are hyphenated
+#also capitalized
+def hyphenate_word(word):
+	return '-'.join(hyphenator.hyphenate_word(word))
+
+#returns a hyphenated version
+def hyphenate_phrase(phrase):
+	words = phrase.split(" ")
+	returnme = []
+	for word in words:
+		returnme.append(hyphenate_word(word))
+	print(" ".join(returnme))
+
 def word_syllable_count(word):
-	return hypehnate_word(word).count('-') + 1
+	return hyphenate_word(word).count('-') + 1
 
 def phrase_syllable_count(phrase):
 	total = 0
@@ -15,17 +31,6 @@ def phrase_syllable_count(phrase):
 		total = total + word_syllable_count(word)
 	return total
 
-#this takes a word and separates its syllables so that they are hyphenated
-#also capitalized
-def hyphenate_word(word):
-	return dic.inserted(word.lower())
-
-#returns a hyphenated version
-def hyphenate_phrase(phrase):
-	words = phrase.split()
-	for word in words:
-		word = hyphenate_word(word)
-	return ''.join(words)
 
 #takes a really long string and then returns a list. every element in the list
 def phrase_break(gan): #gan is an acroym for "Good Argument Name"
@@ -45,7 +50,7 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	#make sure the shit gets ruined
 
 	phrases = gan.lower().split("\n")#when the PLEASE TEST IT is above it's referring to make sure this stuff works
-	for i in phrases.count(''):
+	for i in range(phrases.count('')):
 		phrases.remove('')
 	return phrases
 
