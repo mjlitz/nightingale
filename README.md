@@ -4,7 +4,7 @@ Dependencies:
 abcjs
 https://github.com/paulrosen/abcjs
 
-python2:
+python3:
 https://www.python.org/
  
 <b>Python Packages:</b>
