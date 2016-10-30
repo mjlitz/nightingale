@@ -4,7 +4,6 @@ import inflect
 import pyphen
 
 dic = pyphen.Pyphen(lang='en_US')
-d = cmudict.dict()
 p = inflect.engine()
 
 def word_syllable_count(word):
