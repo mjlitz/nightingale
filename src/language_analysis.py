@@ -58,7 +58,9 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 language analysis for nightingale
 https://github.com/mjlitz/nightingale is the main branch
 i'm commiting to https://github.com/metruption/nightingale
-it works, but could be better ¯\_(ツ)_/¯
+it works, but could be better (shrugging man emote)
+
+if we actually had the shrugging man emote then it wouldn't run on matt's computer so we can't have it :c
 
 things that i need this code to do
 identify rhymes (end of line and internal rhyming)
