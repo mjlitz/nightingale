@@ -1,10 +1,4 @@
 #!/usr/bin/python2
-'''
-from pycorenlp import StanfordCoreNLP
-nlp = StanfordCoreNLP('http://localhost:9001') #it's over NINE THOUSAND!
-i might not use this
-'''
-from nltk.corpus import cmudict
 import re
 import inflect
 import pyphen
