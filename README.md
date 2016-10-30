@@ -4,13 +4,11 @@ Dependencies:
 abcjs
 https://github.com/paulrosen/abcjs
 
-pycorenlp #we might not use this
-https://github.com/smilli/py-corenlp
-//todo(aaron):
-find out if we actually want to use this when NLTK might do what we want better or more easily or something
-
-NLTK
-http://www.nltk.org/
-
-python2(aaron doesn't know how to get NLTK in python3)
+python2:
 https://www.python.org/
+ 
+<b>Python Packages:</b>
+<ul>
+<li>pyphen: http://pyphen.org//</li>
+<li>inflect: https://pypi.python.org/pypi/inflect</li>
+</ul>

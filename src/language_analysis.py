@@ -1,43 +1,55 @@
-#!/usr/bin/python2
-'''
-from pycorenlp import StanfordCoreNLP
-nlp = StanfordCoreNLP('http://localhost:9001') #it's over NINE THOUSAND!
-i might not use this
-'''
-from nltk.corpus import cmudict
+#!/usr/bin/python
+import re
+import inflect
+import pyphen
 
-d = cmudict.dict()
+dic = pyphen.Pyphen(lang='en_US')
+p = inflect.engine()
 
-def hyphenate_phrase(word):
-	return [len(list(y for y in x if y[-1].isdigit())) for x in d[word.lower()]]
-#this is from http://stackoverflow.com/a/4103234
-#thank you internet stranger for writing code that does what I want
-#i renamed the function to hyphenate_phrase 
+def word_syllable_count(word):
+	return hypehnate_word(word).count('-') + 1
 
+def phrase_syllable_count(phrase):
+	total = 0
+	for word in phrase.split(" "):
+		total = total + word_syllable_count(word)
+	return total
+
+#this takes a word and separates its syllables so that they are hyphenated
+#also capitalized
+def hyphenate_word(word):
+	return dic.inserted(word.lower())
+
+#returns a hyphenated version
+def hyphenate_phrase(phrase):
+	words = phrase.split()
+	for word in words:
+		word = hyphenate_word(word)
+	return ''.join(words)
 
 #takes a really long string and then returns a list. every element in the list
 def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	phrases = []
+	phrase_finder = "\n+" #@todo(aaron) test this PLEASE TEST IT
+	number_finder = "[0-9]+"
 
-	while len(phrases) > 0:
-		current_phrase = ''
-		next_index = '//todo(aaron) WRITE CODE TO DO THIS'#find beginning of next phrase, save its location in next_index
-		current phrase = gan[:next_index]
+	#the next three lines of code work, don't touch them unless they no longer work
+	numbers_found = re.findall(number_finder,gan)
+	for number in numbers_found:
+		gan = gan.replace(number,p.number_to_words(number),1)
+	#	yes i did it
+	#yatta
+	#numbers get changed into words
 
-		#set cuttent_phrase to be a substring of 0 to the next beginning
-		#add it to phrases
-		#remove the current_phrase from gan
-		eocp = gen.rfind(current_phrase) #end of current phrase
-		gan = gan[eocp:]
-		#these two lines of code might be redundant (in a bad way)
-		#gan = gan[next_index:] #I THINK THIS LINE DOES WHAT THE ABOVE TWO DO
+	#aaron reminder http://stackoverflow.com/questions/1276764/stripping-everything-but-alphanumeric-chars-from-a-string-in-python
+	#make sure the shit gets ruined
+
+	phrases = gan.lower().split("\n")#when the PLEASE TEST IT is above it's referring to make sure this stuff works
+	for i in phrases.count(''):
+		phrases.remove('')
 	return phrases
 
-#takes a really long string, breaks it into phrases, and then hyphenates the phrases
-	def break_and_hyphenate(gan):
-		phrases = phrase_break(gan)
-		for phrase in phrases:
-			phrase = hyphenate_phrase(phrase)
+
 '''
 language analysis for nightingale
 https://github.com/mjlitz/nightingale is the main branch
@@ -56,7 +68,7 @@ find most important word in each sentence
 ALRIGHT SO CURRENT PLAN...
 get the stuff
 break it into phrases in list form
-['phrase1','phrase2',['subphrase1','subphrase2'],'phrase4']
+['phrase1','phrase2','phrase3','phrase4']
 figure out syllable stressing
 identify nearby phrases (5 apart?) that rhyme
 '''
