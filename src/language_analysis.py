@@ -7,10 +7,11 @@ i might not use this
 from nltk.corpus import cmudict
 import re
 import inflect
+import pyphen
 
+dic = pyphen.Pyphen(lang='en_US')
 d = cmudict.dict()
 p = inflect.engine()
-#p.number_to_words(99) returns "ninety-nine"
 
 def word_syllable_count(word):
 	return [len(list(y for y in x if y[-1].isdigit())) for x in d[word.lower()]]
@@ -27,7 +28,7 @@ def phrase_syllable_count(phrase):
 #this takes a word and separates its syllables so that they are hyphenated
 #also capitalized
 def hyphenate_word(word):
-	pass #//@todo(aaron) write this
+	return dic.inserted(word.lower())
 
 #returns a hyphenated version
 def hyphenate_phrase(phrase):
@@ -39,9 +40,10 @@ def hyphenate_phrase(phrase):
 #takes a really long string and then returns a list. every element in the list
 def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	phrases = []
-	phrase_finder = "//todo(aaron) make this"
+	phrase_finder = "^.+" #@todo(aaron) test this PLEASE TEST IT
 	number_finder = "[0-9]+"
 
+	#the next three lines of code work, don't touch them unless they no longer work
 	numbers_found = re.findall(number_finder,gan)
 	for number in numbers_found:
 		gan = gan.replace(number,p.number_to_words(number),1)
@@ -49,6 +51,8 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	#yatta
 	#numbers get changed into words
 
+	#aaron reminder http://stackoverflow.com/questions/1276764/stripping-everything-but-alphanumeric-chars-from-a-string-in-python
+	#make sure the shit gets ruined
 	"""
 	#so this loop might be mostly redundant
 	while len(phrases) > 0:
@@ -67,7 +71,7 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	
 	#more on tha loop being redundant
 	'''"""
-	phrases = re.split(phrase_finder,gan) #this line of code probably could take that loop's place
+	phrases = re.split(phrase_finder,gan) #when the PLEASE TEST IT is above it's referring to make sure this stuff works
 	return phrases
 
 '''
