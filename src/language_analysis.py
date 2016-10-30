@@ -1,13 +1,9 @@
 #!/usr/bin/python
 import re
 import inflect
-import pyphen
 import hyphenator
 
-dic = pyphen.Pyphen(lang='en_US')
 p = inflect.engine()
-
-#def determine_stressed
 
 #this takes a word and separates its syllables so that they are hyphenated
 #also capitalized
@@ -26,16 +22,18 @@ def word_syllable_count(word):
 	return hyphenate_word(word).count('-') + 1
 
 def phrase_syllable_count(phrase):
+	if phrase.strip() in ['']:
+		return 0
 	total = 0
 	for word in phrase.split(" "):
 		total = total + word_syllable_count(word)
 	return total
 
 
-#takes a really long string and then returns a list. every element in the list
+#takes a really long string and then returns a list of its phrases, also converts numbers
 def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	phrases = []
-	phrase_finder = "\n+" #@todo(aaron) test this PLEASE TEST IT
+	phrase_finder = "\n+"
 	number_finder = "[0-9]+"
 
 	#the next three lines of code work, don't touch them unless they no longer work
@@ -50,10 +48,11 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	#make sure the shit gets ruined
 
 	phrases = gan.lower().split("\n")#when the PLEASE TEST IT is above it's referring to make sure this stuff works
-	for i in range(phrases.count('')):
-		phrases.remove('')
+	#for i in range(phrases.count('')):
+	#	phrases.remove('')
 	return phrases
 
+#def 
 
 '''
 language analysis for nightingale
