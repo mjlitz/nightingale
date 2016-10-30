@@ -48,8 +48,8 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	#make sure the shit gets ruined
 
 	phrases = gan.lower().split("\n")#when the PLEASE TEST IT is above it's referring to make sure this stuff works
-	for i in range(phrases.count('')):
-		phrases.remove('')
+#	for i in range(phrases.count('')):
+#		phrases.remove('')
 	return phrases
 
 
