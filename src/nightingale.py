@@ -39,7 +39,7 @@ syl_pointer = 1
 
 f = open('data.abc','w')
 f.write('X: 1\nT: Nightingale #1\n')
-f.write('M: 4/4\nL: 1/8\nK: G\n')
+f.write('Q: 1/4 = 113\nM: 4/4\nL: 1/8\nK: G\n')
 
 pup = 0.55
 
@@ -121,8 +121,7 @@ while (syl_pointer < len(syl_count)):
 	parse_superphrase(begin, length, current, key)
 	syl_pointer += length + 1
 
-
-pl.abc_wavify(data.abc,'rick')
+pl.abc_wavify('data.abc','rick')
 pl.play_wav('~/Music/nightingale/rick.wav')
 f.close()
 
