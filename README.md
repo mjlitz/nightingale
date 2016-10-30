@@ -10,6 +10,11 @@ https://www.python.org/
 <li>NumPy: http://www.numpy.org/</li>
 <li>PyGame: http://www.pygame.org/wiki/GettingStarted</li>
 </ul>
+To run, compile src/nightingale.py
+python nightingale.py to create data.abc
+cd to where PySynth is saved
+python3 read_abc.py data.abc
+
 
 2:41 is when we dicovered PySynth.
 THANK YOU
