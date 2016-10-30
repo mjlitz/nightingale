@@ -8,6 +8,7 @@ https://www.python.org/
 <li>inflect: https://pypi.python.org/pypi/inflect</li>
 <li>PySynth: https://github.com/mdoege/PySynth</li>
 <li>NumPy: http://www.numpy.org/</li>
+<li>PyGame: http://pygame.org/hifi.html</li>
 </ul>
 
 2:41 is when we dicovered PySynth.
