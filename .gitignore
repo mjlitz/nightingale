@@ -4,3 +4,4 @@ thinking
 src/aaron_testing.py
 src/lyrics.py
 src/__pycache__
+*.pyc
