@@ -6,10 +6,7 @@
 ...................
 
 Written by Matt Litzsinger, Aaron Thomas, and Andrew Huang
-Updated October 30, 2016
-
-
-
+Created on October 30, 2016 for HacKNC
 '''
 
 import random
@@ -122,10 +119,13 @@ while (syl_pointer < len(syl_count)):
 	parse_superphrase(begin, length, current, key)
 	syl_pointer += length + 1
 
+f.close()
 pl.abc_wavify('data.abc','rick')
 pl.play_wav('~/Music/nightingale/rick.wav')
-f.close()
 
+
+
+#wtf is this?
 '''for phrase in range(0,len(phrases)):
 	phrase = 0
 	for note in range(0,phrases[phrase]):
