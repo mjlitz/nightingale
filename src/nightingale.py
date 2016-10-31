@@ -1,5 +1,10 @@
 #!/usr/bin/python
-'''NIGHTINGALE version 0.0
+'''NIGHTINGALE version 0.1.1
+
+about versioning:
+left number increasing means that it will break backwards compatibility
+middle number increasing means there's a new feature or something
+right number increases basically whenever we feel like the changes are big enough to increase that number
 
 ...................
 ..  NIGHTINGALE  ..
@@ -24,7 +29,7 @@ superphrase_start = [0.7,0.98,1.00]
 prob = [0.10,0.75,0.95,0.97,0.99,0.997,0.998,1.000]
 # data is number of phrases contained within
 
-lyric_lines = la.phrase_break(lyrics.rick)
+lyric_lines = la.phrase_break(lyrics.we_dont_care)
 syl_count = []
 for i in lyric_lines:
 	syl_count.append(la.phrase_syllable_count(i))
@@ -119,11 +124,10 @@ while (syl_pointer < len(syl_count)):
 	parse_superphrase(begin, length, current, key)
 	syl_pointer += length + 1
 
+
+# pl.abc_wavify(f.name,'rick')
+# pl.play_wav('~/Music/nightingale/rick.wav')
 f.close()
-pl.abc_wavify('data.abc','rick')
-pl.play_wav('~/Music/nightingale/rick.wav')
-
-
 
 #wtf is this?
 '''for phrase in range(0,len(phrases)):
