@@ -52,15 +52,24 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	#	phrases.remove('')
 	return phrases
 
-#def 
+#takes in a word (hyphenated or unhyphenated)
+#returns the same word in hypehnated form with the stressed syllable capitalized
+def word_syllable_stresser(word):
+	pass #@todo(aaron) implement this
 
+#does everything
+#takes the phrase broken lyrics
+#WHAT DOES IT DOOOOO?
+def super_anal(gan): #see above for why gan is a good argument name
+	pass#@todo(aaron) implement this
+
+#takes in two words and detects if they rhyme,
+def detect_word_rhyme(word1, word1):
+	words = [word1,word2]
+	#@todo(aaron) implement this
 '''
 language analysis for nightingale
 https://github.com/mjlitz/nightingale is the main branch
-i'm commiting to https://github.com/metruption/nightingale
-it works, but could be better (shrugging man emote)
-
-if we actually had the shrugging man emote then it wouldn't run on matt's computer so we can't have it :c
 
 things that i need this code to do
 identify rhymes (end of line and internal rhyming)
