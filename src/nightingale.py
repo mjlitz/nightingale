@@ -29,7 +29,7 @@ superphrase_start = [0.7,0.98,1.00]
 prob = [0.10,0.75,0.95,0.97,0.99,0.997,0.998,1.000]
 # data is number of phrases contained within
 
-lyric_lines = la.phrase_break(lyrics.land_of_the_dead)
+lyric_lines = la.phrase_break(lyrics.song)
 syl_count = []
 for i in lyric_lines:
 	syl_count.append(la.phrase_syllable_count(i))
