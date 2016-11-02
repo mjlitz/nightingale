@@ -1,5 +1,7 @@
 Nightingale takes lyrics and creates a song for them.
 
+<h3>DependenciesL</h3>
+
 python3:
 https://www.python.org/
  
@@ -15,7 +17,7 @@ https://www.python.org/
 <ul>
 	<li>create a file called lyrics.py in the src directory</li>
 	<li>add your song to lyrics.py as a multi-line-string</li>
-	<li>in line 32 of nightingale.p put the name of your song... lyric_lines = la.phrase_break(lyrics.SONGNAME)</li>
+	<li>in line 32 of nightingale.py put the name of your song... lyric_lines = la.phrase_break(lyrics.SONGNAME)</li>
 	<li>sh nightingale.sh</li>
 	<li>The song will be in abc notation in data.abc and you can listen to it by playing out.wav</li>
 </ul>
