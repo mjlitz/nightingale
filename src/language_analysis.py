@@ -2,9 +2,9 @@
 import re
 import inflect
 import hyphenator
-# from nltk.corpus import cmudict
+from nltk.corpus import cmudict
 
-# d = cmudict.dict() #probably will need this
+d = cmudict.dict() #probably will need this
 p = inflect.engine()
 
 #this takes a word and separates its syllables so that they are hyphenated
