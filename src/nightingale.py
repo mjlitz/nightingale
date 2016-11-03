@@ -125,8 +125,8 @@ while (syl_pointer < len(syl_count)):
 	syl_pointer += length + 1
 
 
-pl.abc_wavify(f.name,'rick')
-pl.play_wav('~/Music/nightingale/rick.wav')
+# pl.abc_wavify(f.name,'rick')
+# pl.play_wav('~/Music/nightingale/rick.wav')
 f.close()
 
 #wtf is this?
