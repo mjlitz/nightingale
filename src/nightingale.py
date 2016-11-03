@@ -1,5 +1,5 @@
 #!/usr/bin/python
-'''NIGHTINGALE version 0.1.2 #skipping 0.1.1 because we(aaron) pushed a commit with 0.1.1 in it by mistake
+'''NIGHTINGALE version 0.1.3-alpha
 
 about versioning:
 left number increasing means that it will break backwards compatibility
