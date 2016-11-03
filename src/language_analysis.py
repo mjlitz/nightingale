@@ -72,18 +72,28 @@ def word_syllable_stresser(word):
 	return stressed_word
 
 
-"""
-#does everything
-#takes the phrase broken lyrics
-#WHAT DOES IT DOOOOO?
-def super_anal(gan): #see above for why gan is a good argument name
-	pass#@todo(aaron) implement this
+#returns the last syllable of a word (hypehnated or unphypehnated)
+def word_last_syl(word):
+	word = la.hyphenate_word(word)
+	while '-' in word:
+		word = word[word.index('-')+1:]
+	return word
+
 
 #takes in two words and detects if they rhyme,
 def detect_word_rhyme(word1, word2):
 	words = [word1,word2]
 	#@todo(aaron) implement this
+
+
+#does everything
+#takes the phrase broken lyrics
+#WHAT DOES IT DOOOOO?
+def super_anal(gan): #see above for why gan is a good argument name
+	pass#@todo(aaron) implement this
 '''
+
+
 language analysis for nightingale
 https://github.com/mjlitz/nightingale is the main branch
 
@@ -102,4 +112,4 @@ break it into phrases in list form
 ['phrase1','phrase2','phrase3','phrase4']
 figure out syllable stressing
 identify nearby phrases (5 apart?) that rhyme
-'''"""
+'''
