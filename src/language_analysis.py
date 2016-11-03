@@ -9,6 +9,7 @@ p = inflect.engine()
 
 #this takes a word and separates its syllables so that they are hyphenated
 #also capitalized
+#if it takes a hyphenated word it should just return the hyphenated word (i haven't tested this)
 def hyphenate_word(word):
 	return '-'.join(hyphenator.hyphenate_word(word))
 
