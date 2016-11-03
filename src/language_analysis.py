@@ -10,6 +10,7 @@ p = inflect.engine()
 #this takes a word and separates its syllables so that they are hyphenated
 #also capitalized
 #if it takes a hyphenated word it should just return the hyphenated word (i haven't tested this)
+#also i just kinda assumed that if you try to hyphenate an already hyphenated word it wouldn't add hyphens
 def hyphenate_word(word):
 	return '-'.join(hyphenator.hyphenate_word(word))
 
@@ -34,25 +35,23 @@ def phrase_syllable_count(phrase):
 
 
 #takes a really long string and then returns a list of its phrases, also converts numbers
+#in current version (v0.1.3-alpha) only breaks up the phrases at line breaks
 def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	phrases = []
 	phrase_finder = "\n+"
 	number_finder = "[0-9]+"
 
-	#the next three lines of code work, don't touch them unless they no longer work
+	#changes numberical numbers to written numbers
 	numbers_found = re.findall(number_finder,gan)
 	for number in numbers_found:
 		gan = gan.replace(number,p.number_to_words(number),1)
-	#	yes i did it
-	#yatta
-	#numbers get changed into words
 
 	#aaron reminder http://stackoverflow.com/questions/1276764/stripping-everything-but-alphanumeric-chars-from-a-string-in-python
-	#make sure the shit gets ruined
+	#we might need that later, just a reminder for aaron
 
-	phrases = gan.lower().split("\n")#when the PLEASE TEST IT is above it's referring to make sure this stuff works
-	#for i in range(phrases.count('')):
-	#	phrases.remove('')
+	phrases = gan.lower().split("\n")
+	#for i in range(phrases.count('')): #this removes all blank lines
+	#	phrases.remove('')				#what if each stanza was a sub-list and then we detect identical stanzas
 	return phrases
 
 #takes in a word (hyphenated or unhyphenated)
@@ -92,25 +91,3 @@ def detect_word_rhyme(word1, word2):
 #WHAT DOES IT DOOOOO?
 def super_anal(gan): #see above for why gan is a good argument name
 	pass#@todo(aaron) implement this
-'''
-
-
-language analysis for nightingale
-https://github.com/mjlitz/nightingale is the main branch
-
-things that i need this code to do
-identify rhymes (end of line and internal rhyming)
-determine which syllables are stressed (do this before rhyme stuff)
-
-pseudocode of this
-isolate the phrases
-identiy rhymes at ends of phrases
-find most important word in each sentence
-
-ALRIGHT SO CURRENT PLAN...
-get the stuff
-break it into phrases in list form
-['phrase1','phrase2','phrase3','phrase4']
-figure out syllable stressing
-identify nearby phrases (5 apart?) that rhyme
-'''

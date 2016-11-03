@@ -37,3 +37,18 @@ for demo purposes we should focus on only parsing well formatted lyrics, if some
 maybe we should add a tempo slider
 the tempo slider needs a box next to it that you can just set the tempo manually and type 60 or 120 or something and it will adjust the slider automatically. why? because so tha blind people can use it. i know a blind dude who reads music in abc notation and i'm not sure if a blind person using a sceenreader can use sliders in webpages, but text boxes he can definitely use
 //end aaron
+
+//aaron braindumps
+a data structure to store a fully analyzed lyrics would be really really neat (and probably complex and esoteric)
+so like
+lyrics = [stanza1,stanza2,stanza3]
+and then...
+stanzaN = [line1,line2,line3]
+lineN = [phrase1,phrase2] (find phrases?) sometimes just a single phrase as well
+phraseN = [word1,word2,word3]
+wordN = [[syl1,sress],[syl2,stress],[syl3,stress]]
+
+what a crazy multidimensional list
+i bet numpy has something to help with this, what does numpy even do?
+todo(@aaron) learn what numpy does
+//end braindump (for now...)
