@@ -9,10 +9,12 @@ p = inflect.engine()
 
 #this takes a word and separates its syllables so that they are hyphenated
 #also capitalized
-#if it takes a hyphenated word it should just return the hyphenated word (i haven't tested this)
-#also i just kinda assumed that if you try to hyphenate an already hyphenated word it wouldn't add hyphens
+#if it takes a hyphenated word it should just return the hyphenated word (i have implemented this)
 def hyphenate_word(word):
-	return '-'.join(hyphenator.hyphenate_word(word))
+	word = '-'.join(hyphenator.hyphenate_word(word))
+	if '--' in word:
+		word = '-'.join(word.split('--'))
+	return word
 
 #returns a hyphenated version
 def hyphenate_phrase(phrase):
@@ -82,12 +84,12 @@ def word_last_syl(word):
 
 #takes in two words and detects if they rhyme,
 def detect_word_rhyme(word1, word2):
-	words = [word1,word2]
-	#@todo(aaron) implement this
+	pass
+	
 
 
 #does everything
 #takes the phrase broken lyrics
 #WHAT DOES IT DOOOOO?
-def super_anal(gan): #see above for why gan is a good argument name
+def super_analysis(gan): #see above for why gan is a good argument name
 	pass#@todo(aaron) implement this
