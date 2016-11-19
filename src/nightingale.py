@@ -18,7 +18,6 @@ import random
 import math
 import language_analysis as la
 import lyrics
-import player as pl
 
 #the range of the music that's created
 r = ['C,','D,','E,','F,','G,','A,','B,', 'C', 'D', 'E', 'F', 'G', 'A', 'B', 'c', 'd', 'e', 'f', 'g']
@@ -125,8 +124,6 @@ while (syl_pointer < len(syl_count)):
 	syl_pointer += length + 1
 
 
-# pl.abc_wavify(f.name,'rick')
-# pl.play_wav('~/Music/nightingale/rick.wav')
 f.close()
 
 #wtf is this?

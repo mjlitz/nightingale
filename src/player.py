@@ -1,8 +1,8 @@
 #!/usr/bin/python
-import pysynth_e as pse
 import wave
-import pygame
-pygame.init()
+from pygame import mixer
+import time
+mixer.init()
 #takes in abc and wavifies it
 #abc is a tuple in abc notation that has data this is meant to process
 #name will be the name of the file
@@ -11,6 +11,8 @@ def abc_wavify(abc,name):
 
 #if this works then it means YEE
 def play_wav(filepath):
-	s = pygame.mixer.Sound(filepath)
-	s.start()
-	s.stop()
+	s = mixer.Sound(filepath)
+	s.play()
+	time.sleep(s.get_length())
+
+play_wav("out.wav")
