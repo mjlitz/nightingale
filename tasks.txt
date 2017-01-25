@@ -21,15 +21,8 @@ user can download zip file containing the following:
 3) (only if the checkbox is ticked)
 //end aaron's incoherent ramblings
 
-//aaron is writing more things
-for documenting the importance of a word
-by default all words get 0
-the end of each word has [n] where n is its importance
-example:
-"The[0] word[2] importance[5] values[3] have[2] no[5] meaning[5] in[0] this[1] example[2]"
-will that be enough info an word importance to generate music related to them?
-matt pls reply
-//end aaron stuff
+LMAO "WHAT UX"
+
 
 //more aaron
 for demo purposes we should focus on only parsing well formatted lyrics, if someone removes all punctuation and newlines figuring it all out is just a pain. we're only going to help epople who give at least pretty good input
@@ -37,18 +30,3 @@ for demo purposes we should focus on only parsing well formatted lyrics, if some
 maybe we should add a tempo slider
 the tempo slider needs a box next to it that you can just set the tempo manually and type 60 or 120 or something and it will adjust the slider automatically. why? because so tha blind people can use it. i know a blind dude who reads music in abc notation and i'm not sure if a blind person using a sceenreader can use sliders in webpages, but text boxes he can definitely use
 //end aaron
-
-//aaron braindumps
-a data structure to store a fully analyzed lyrics would be really really neat (and probably complex and esoteric)
-so like
-lyrics = [stanza1,stanza2,stanza3]
-and then...
-stanzaN = [line1,line2,line3]
-lineN = [phrase1,phrase2] (find phrases?) sometimes just a single phrase as well
-phraseN = [word1,word2,word3]
-wordN = [[syl1,sress],[syl2,stress],[syl3,stress]]
-
-what a crazy multidimensional list
-i bet numpy has something to help with this, what does numpy even do?
-todo(@aaron) learn what numpy does
-//end braindump (for now...)
