@@ -34,10 +34,12 @@ stresses = []
 syl_count = []
 for phrase in lyric_lines:
 	syl_count.append(la.phrase_syllable_count(phrase))
-	words.append(la.hyphenate_phrase(phrase))
-	for word in words:
+	phrase = (la.hyphenate_phrase(phrase))
+#	print(phrase)
+	for word in phrase:
+		if word == '':
+			break
 		stresses.append(la.word_syllable_stresser(word))
-	print stresses
 if syl_count[0] != 0:
 	syl_count = [0] + syl_count
 syl_count.append(0)
@@ -67,7 +69,7 @@ def decide_length(note,syllables,current_beat):
 ## we have more notes
 	if note < syllables:
 		current_beat += 1
-		if current_beat % 8 == 0:
+		if current_beat % 8 == 0:	##if we are 8, 16, 24, etc. eighth notes in, this is the boundary of a measure
 			f.write('|')
 ##no more notes, let's rest
 	elif note == syllables:
