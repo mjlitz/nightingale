@@ -46,7 +46,7 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 	#changes numberical numbers to written numbers
 	numbers_found = re.findall(number_finder,gan)
 	for number in numbers_found:
-		gan = gan.replace(number,p.number_to_words(number),1)
+		gan = gan.replace(number,number_to_words(number),1)
 
 	#aaron reminder http://stackoverflow.com/questions/1276764/stripping-everything-but-alphanumeric-chars-from-a-string-in-python
 	#we might need that later, just a reminder for aaron
@@ -61,16 +61,16 @@ def phrase_break(gan): #gan is an acroym for "Good Argument Name"
 #example io
 #discriminate
 #0dis-1crim-0i-2nate
-#the number is put before the 
+#the number is put before the
 #when it comes to stressing and a syllable (1=primary, 2=secondary, 0=no stress)
 def word_syllable_stresser(word):
-	stress_amount = ''.join(d[w][0])
+	stress_amount = ''.join(d[word][0])
 	stress_amount = ''.join(i for i in stress_amount if i.isdigit())
 	stressed_word = ''
 	word = word.split('-')
 	for i in range(len(stress_amount)):
 		stressed_word = "{}{}".format(stressed_word,"{}{}{}".format(stress_amount[i],word[i],'-'))
-		stressed_word = heck[:-1]
+		# stressed_word = heck[:-1] not sure what this was for, if you see this comment after august 26, 2018 just delete it
 	return stressed_word
 
 
@@ -85,7 +85,7 @@ def word_last_syl(word):
 #takes in two words and detects if they rhyme,
 def detect_word_rhyme(word1, word2):
 	pass
-	
+
 
 
 #does everything
