@@ -1,5 +1,5 @@
 #!/usr/bin/python
-'''NIGHTINGALE version 0.1.3-alpha
+'''NIGHTINGALE version 0.1.4
 
 about versioning:
 left number increasing means that it will break backwards compatibility
@@ -43,12 +43,6 @@ f = open('data.abc','w')
 f.write('X: 1\nT: Nightingale #1\n')
 f.write('Q: 1/4 = 113\nM: 4/4\nL: 1/8\nK: Bmin\n')
 
-pup = 0.55
-
-##need to implement
-previous_interval = 0
-up = 0 #up = 1, down = 0
-##
 key = 3
 length = 100
 pup = 0.55
@@ -60,14 +54,31 @@ key = 4
 #f.write(r[key])
 current = key
 
-def write_note_length(i,syllables):
-	if i == syllables-1 and syllables < 12:
-		f.write('4')
+	
 
+## writes a note length based on which note (1 note = 1 syllable), how many syllables, how many beats used. Writing nothing means default note length.
+def decide_length(note,syllables,current_beat):
+## we have more notes
+	if note < syllables:
+		current_beat += 1
+		if current_beat % 8 == 0:
+			f.write('|')
+##no more notes, let's rest
+	elif note == syllables:
+		current_beat += 1
+		if current_beat < 8:
+			f.write('z'+str(8-current_beat))
+			f.write('|')
+			f.write('z8')
+		else:
+			f.write('z'+str(16-current_beat))
+		
+	return current_beat
 def parse_phrase(phrase, current, key):
-	note = 0
+	note = 1	##counting from 1
+	current_beat = 0 ##divisible by 2, 4 are stress beats
 	print (syl_count[phrase])
-	while (note < syl_count[phrase]):
+	while (note <= syl_count[phrase]):
 		dfromtonic = current-key
 		rand = random.random()
 ## Factors that affect pup and prob
@@ -91,7 +102,7 @@ def parse_phrase(phrase, current, key):
 				#f.write('added = '+str(added)+'\n')
 				#f.write(str(n)+'\n')
 				f.write(r[current])
-				write_note_length(note,syl_count[phrase])
+				current_beat = decide_length(note,syl_count[phrase],current_beat)
 				break  
 			else:
 				i += 1
@@ -116,6 +127,8 @@ def parse_superphrase(begin, length, current, key):
 		#f.write('|')
 		phrase += 1
 
+
+## main method
 while (syl_pointer < len(syl_count)):
 	print('syl_pointer = '+str(syl_pointer))
 	begin = syl_pointer
@@ -126,7 +139,7 @@ while (syl_pointer < len(syl_count)):
 
 f.close()
 
-#wtf is this?
+#development for phrases
 '''for phrase in range(0,len(phrases)):
 	phrase = 0
 	for note in range(0,phrases[phrase]):
